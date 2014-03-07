@@ -1,11 +1,11 @@
-#' Analyzing Covariate Choice Consequences
+#' Regressions with all possible covariave combinations 
 #'
 #' Regresses all possible combinations of a covariates on an outcome variable
 #'
 #' @param X A numeric matrix object of covariates with no missing values (should not include the intercept vector)
 #' @param y A numeric object with the same number of elements as \code{X} has rows.
 #'
-#' @return An object of class RegAnalysis containing
+#' @return An object of class RegCombin containing
 #'  \item{coefficients}{A n by (2^n)-1 matrix of coefficient values, where n is the number of columns in \code{X} plus 1 (for the intercept).  Each column in this object represeents the output of a single model, each row represents a given variable in \code{X}.}
 #'  \item{R2}{A numeric vector of length (2^n)-1 of R^2 values, where n is the number of columns in \code{X}.}
 #'  \item{X}{The first object input} 
@@ -17,17 +17,17 @@
 #' set.seed(1801)
 #' myX <- matrix(rpois(n=60,lambda=15),ncol=4)
 #' myY <- sample(1:100,15,replace=TRUE) 
-#' fitRegAnalysis(myX, myY)
-#' @rdname fitRegAnalysis
-#' @aliases fitRegAnalysis,ANY-method
+#' fitRegCombin(myX, myY)
+#' @rdname fitRegCombin
+#' @aliases fitRegCombin,ANY-method
 #' @export
-setGeneric(name="fitRegAnalysis",
-           def=function(X, y, ...)
-           {standardGeneric("fitRegAnalysis")}
+setGeneric(name="fitRegCombin",
+           def=function(X,y,...)
+           {standardGeneric("fitRegCombin")}
 )
 
 #' @export
-setMethod(f="fitRegAnalysis",
+setMethod(f="fitRegCombin",
           definition=function(X, y, ...){
             
             #before everything, add the intercept vector
@@ -58,7 +58,9 @@ setMethod(f="fitRegAnalysis",
             R.squareds[z] <<- summary(mod)[["r.squared"]]
           })
           
-          #it returns the output generated above as the input of the slots of an S4 object of "RegAnalysis" class
-          return(new("RegAnalysis", coefficients=Coefficients,R2=R.squareds,X=X[,2:ncol(X)],y=y))
+          #it returns the output generated above as the input of the slots of an S4 object of "RegCombin" class
+          return(new("RegCombin", coefficients=Coefficients,R2=R.squareds,X=X[,2:ncol(X)],y=y))
           }
 )
+
+getMethods(fitRegCombin)

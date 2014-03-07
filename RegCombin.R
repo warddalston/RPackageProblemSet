@@ -1,9 +1,9 @@
-#' A Regression Analysis 
+#' Regressions of all covaraite combinations  
 #' 
-#' Object of class \code{RegAnalysis} are created by the \code{fitRegAnalysis} function
+#' Objects of class \code{RegCombin} are created by the \code{fitRegCombin} function
 #'
 #' 
-#' An object of the class `RegAnalysis' has the following slots:
+#' An object of the class `RegCombin' has the following slots:
 #' \itemize{
 #' \item \code{coefficients} A matrix of the regression coefficients created by regressions of all possible combinations of \code{X} columns on \code{y}
 #' \item \code{R2} A vector of R^2 values from the regressions of all possible combinations of \code{X} on \code{y}
@@ -12,10 +12,10 @@
 #' }
 #'
 #' @author Dalston G. Ward: \email{ward.dalston@gmail.com}
-#' @aliases RegAnalysis-class initialize,RegAnalysis-method getRegAnalysis,RegAnalysis-method 
-#' @rdname RegAnalysis
+#' @aliases RegCombin-class initialize,RegCombin-method getRegCombin,RegCombin-method 
+#' @rdname RegCombin
 #' @export
-setClass(Class="RegAnalysis", 
+setClass(Class="RegCombin", 
          slots = list(
            coefficients = "matrix",
            R2 = "numeric",
@@ -31,8 +31,8 @@ setClass(Class="RegAnalysis",
 )
 
 #' @export
-setMethod("initialize", "RegAnalysis", 
-          function(.Object, coefficients=matrix(0,nrow=1,ncol=1), R2=numeric(0),X=matrix(0,nrow=1,ncol=1),y=numeric(0)){
+setMethod("initialize", "RegCombin", 
+          function(.Object, coefficients=matrix(0,nrow=1,ncol=1), R2=numeric(0),X=matrix(0,nrow=1,ncol=1),y=numeric(1)){
             if(any(is.na(X))){
               stop("The function does not accept covariate matrices with missing values")
             }
@@ -50,17 +50,18 @@ setMethod("initialize", "RegAnalysis",
           }
 ) 
 
-#' @rdname RegAnalysis
+#' @rdname RegCombin
 #' @export 
-setGeneric("getRegAnalysis",
-           function(object="RegAnalysis")  {
-             standardGeneric("getRegAnalysis")
+setGeneric("getRegCombin",
+           function(object)  {
+             standardGeneric("getRegCombin")
            }
 )
 
 #' @export
-setMethod("getRegAnalysis", "RegAnalysis",
-          function(object){ 
+setMethod(f="getRegCombin", #f is some generic method that R knows (it knows getRegCombin because we just taught it to R in the function right about here!!!!! )
+          signature="RegCombin", #now we teach R what to do when it sees getRegCombin and the input is of class RegCombin! 
+          definition=function(object){ 
             return(list(coefficients=object@coefficients,R2=object@R2))
           }
 )
