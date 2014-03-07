@@ -6,11 +6,14 @@
 #' @param y A numeric object with the same number of elements as \code{X} has rows.
 #'
 #' @return An object of class RegCombin containing
+#' \itemize{
 #'  \item{coefficients}{A n by (2^n)-1 matrix of coefficient values, where n is the number of columns in \code{X} plus 1 (for the intercept).  Each column in this object represeents the output of a single model, each row represents a given variable in \code{X}.}
 #'  \item{R2}{A numeric vector of length (2^n)-1 of R^2 values, where n is the number of columns in \code{X}.}
 #'  \item{X}{The first object input} 
 #'  \item{y}{The second object input}
-#' @author Dalston G. Ward
+#'  }
+#'  
+#' @author Dalston G. Ward  \email{ward.dalston@gmail.com}
 #' @note The reason that the number of combinations is (2^n)-1 instead of 2^n is that one cannot fit a regression with no covariates and no intercept (which is the combination of none of the columns of \code{X}.
 #' @examples
 #' 
@@ -36,7 +39,7 @@ setMethod(f="fitRegCombin",
           #The method first creates a logical matrix specifying which variables are in each of the combinations.  There are (2^n)-1 possible combinations of covariates (including the intercept as a covariate).  The reason for the -1 is that it is not possible to fit a model with no intercepts and no covariates!  
           selectorList <- sapply(1:ncol(X),function(x){ 
               apply(combn(1:ncol(X),x), 2, function(z){
-                CurrentCombn <- logical(length=5)
+                CurrentCombn <- logical(length=ncol(X))
                 CurrentCombn[z] <- TRUE
                 return(CurrentCombn)
                 }) #close the apply
@@ -62,5 +65,3 @@ setMethod(f="fitRegCombin",
           return(new("RegCombin", coefficients=Coefficients,R2=R.squareds,X=X[,2:ncol(X)],y=y))
           }
 )
-
-getMethods(fitRegCombin)

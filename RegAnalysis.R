@@ -1,10 +1,11 @@
-#' Regressions of all covaraite combinations  
+#' A Regression Analysis object
 #' 
-#' Objects of class \code{RegCombin} are created by the \code{fitRegCombin} function
+#' Objects of class \code{RegAnalysis} are created by the \code{performRegAnalysis} function
 #'
 #' 
-#' An object of the class `RegCombin' has the following slots:
+#' An object of the class `RegAnalysis' has the following slots:
 #' \itemize{
+#' \item \code{MeanR2} A vector of the mean r^2 values for regressions including each of the possible covariates. 
 #' \item \code{coefficients} A matrix of the regression coefficients created by regressions of all possible combinations of \code{X} columns on \code{y}
 #' \item \code{R2} A vector of R^2 values from the regressions of all possible combinations of \code{X} on \code{y}
 #' \item \code{X} The first input, a matrix of covariate values (intercept vector not included)
@@ -12,17 +13,20 @@
 #' }
 #'
 #' @author Dalston G. Ward: \email{ward.dalston@gmail.com}
-#' @aliases RegCombin-class initialize,RegCombin-method getRegCombin,RegCombin-method 
-#' @rdname RegCombin
+#' @aliases RegAnalysis-class initialize,RegAnalysis-method getRegAnalysis,RegAnalysis-method 
+#' @rdname RegAnalysis
 #' @export
-setClass(Class="RegCombin", 
+setClass(Class="RegAnalysis", 
+         contains="RegCombin",
          slots = list(
+           MeanR2 = "numeric",
            coefficients = "matrix",
            R2 = "numeric",
            X = "matrix",
            y = "numeric"
          ),
          prototype = prototype(
+           MeanR2 = numeric(),
            coefficients = matrix(),
            R2 = numeric(),
            X = matrix(),
@@ -31,8 +35,8 @@ setClass(Class="RegCombin",
 )
 
 #' @export
-setMethod("initialize", "RegCombin", 
-          function(.Object, coefficients=matrix(0,nrow=1,ncol=1), R2=numeric(0),X=matrix(0,nrow=1,ncol=1),y=numeric(1)){
+setMethod("initialize", "RegAnalysis", 
+          function(.Object, MeanR2=numeric(0), coefficients=matrix(0,nrow=1,ncol=1), R2=numeric(0),X=matrix(0,nrow=1,ncol=1),y=numeric(1)){
             if(any(is.na(X))){
               stop("The function does not accept covariate matrices with missing values")
             }
@@ -42,6 +46,7 @@ setMethod("initialize", "RegCombin",
             if(length(y)!=nrow(X)){
               stop("The length of y and the number of rows of X must be equal")
             }
+            .Object@MeanR2 <- MeanR2
             .Object@coefficients <- coefficients
             .Object@R2 <- R2
             .Object@X <- X
@@ -50,18 +55,26 @@ setMethod("initialize", "RegCombin",
           }
 ) 
 
-#' @rdname RegCombin
+#' @rdname RegAnalysis
 #' @export 
-setGeneric("getRegCombin",
+setGeneric("getRegAnalysis",
            function(object)  {
-             standardGeneric("getRegCombin")
+             standardGeneric("getRegAnalysis")
            }
 )
 
 #' @export
-setMethod(f="getRegCombin", #f is some generic method that R knows (it knows getRegCombin because we just taught it to R in the function right about here!!!!! )
-          signature="RegCombin", #now we teach R what to do when it sees getRegCombin and the input is of class RegCombin! 
+setMethod(f="getRegAnalysis", #f is some generic method that R knows (it knows getRegAnalysis because we just taught it to R in the function right about here!!!!! )
+          signature="RegAnalysis", #now we teach R what to do when it sees getRegAnalysis and the input is of class RegAnalysis! 
           definition=function(object){ 
-            return(list(coefficients=object@coefficients,R2=object@R2))
+            return(list(MeanR2=object@MeanR2))
+          }
+)
+
+#' @export
+setMethod(f="getRegCombin",
+          signature="RegAnalysis",
+          definition=function(object){ 
+            return(list(MeanR2=object@MeanR2,coefficients=object@coefficients,R2=object@coefficients))
           }
 )
