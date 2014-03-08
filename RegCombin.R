@@ -65,3 +65,83 @@ setMethod(f="getRegCombin", #f is some generic method that R knows (it knows get
             return(list(coefficients=object@coefficients,R2=object@R2))
           }
 )
+
+#' @rdname RegCombin
+#' @export 
+setGeneric("getRegCombinInput", #this funciton and the one below it define get methods for getting out the input of a RegCombin or RegAnalysis class S4 object 
+           function(object)  {
+             standardGeneric("getRegCombinInput")
+           }
+)
+
+#' @export
+setMethod(f="getRegCombinInput", 
+          signature="RegCombin",  
+          definition=function(object){ 
+            return(list(X=object@X,y=object@y))
+          }
+)
+
+#' @export
+setGeneric("print") #Because "print" is not a generic S4 function. 
+
+#' @export
+setMethod(f="print",
+          signature="RegCombin",
+          definition=function(x,...){
+            cat("Information about", substitute(x) , "\n")
+            cat("****************************** \n")
+            cat("N observations:",length(x@y),"\n")
+            cat("N regressions:", ncol(x@coefficients),"\n")
+            cat("Covariates considered:", paste(rownames(x@coefficients),collapse=", "),"\n")
+            cat("Max R^2:", max(x@R2), "\n")
+            cat("Max R^2 Included",names(x@R2)[which.max(x@R2)],"\n")
+            cat("Average Coefficeint estimates: \n")
+            sapply(1:nrow(x@coefficients),function(y){
+              cat("     ", rownames(x@coefficients)[y],": ", mean(x@coefficients[y,],na.rm=T),"\n",sep="")
+            })
+            cat("****************************** \n")
+          })
+
+#' @export
+setMethod(f="show",
+          signature="RegCombin",
+          definition=function(object){
+            cat("First 10 R^2 values: \n")
+            if(length(object@R2) < 10){
+            print(object@R2)
+            } else { print(object@R2[1:10])}
+            cat("\n")
+            cat("First 5 rows and columns coefficent matrix: \n")
+            if(nrow(object@coefficients) < 5 & ncol(object@coefficients) < 5){
+            print(object@coefficients)
+            }
+            if(nrow(object@coefficients) < 5 & ncol(object@coefficients) >= 5){
+              print(object@coefficients[,1:5])
+            }
+            if(nrow(object@coefficients) >= 5 & ncol(object@coefficients) < 5){
+              print(object@coefficients[1:5,])
+            }
+            if(nrow(object@coefficients) >= 5 & ncol(object@coefficients) >= 5){
+              print(object@coefficients[1:5,1:5])
+            }
+            cat("\n")
+            cat("First 5 rows and columns in the covariate matrix: \n")
+            if(nrow(object@X) < 5 & ncol(object@X) < 5){
+              print(object@X)
+            }
+            if(nrow(object@X) < 5 & ncol(object@X) >= 5){
+              print(object@X[,1:5])
+            }
+            if(nrow(object@X) >= 5 & ncol(object@X) < 5){
+              print(object@X[1:5,])
+            }
+            if(nrow(object@X) >= 5 & ncol(object@X) >= 5){
+              print(object@X[1:5,1:5])
+            }
+            cat("\n")
+            cat("First 10 outcome variable values: \n")
+            if(length(object@y) < 10){
+              print(object@y)}
+            else {print(object@y[1:10])}
+          })
