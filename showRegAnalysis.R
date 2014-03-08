@@ -1,19 +1,25 @@
-#' Showing RegCombin objects
+#' Showing RegAnalysis objects
 #' 
-#' Prints some of the information contained in a RegCombin object into the console
+#' Prints some of the information contained in a RegAnalysis object into the console
 #'
-#' @param object an object of class `RegCombin'
+#' @param object an object of class `RegAnalysis'
 #' 
-#' @details The show method for objects of class `RegCombin' prints the first ten values from the \code{R2} slot, the first ten values from the \code{y} slot, the leading 5 by 5 matrix from the \code{coefficients} slot and the leading 5 by 5 matrix from the \code{X} slot.  
+#' @details The show method for objects of class `RegAnalysis' prints the entire MeanR2 and VarR2 vectors, the first ten values from the \code{R2} slot, the first ten values from the \code{y} slot, the leading 5 by 5 matrix from the \code{coefficients} slot and the leading 5 by 5 matrix from the \code{X} slot.  
 #'
 #' @author Dalston G. Ward: \email{ward.dalston@gmail.com}
-#' @note The print and show methods for objects of class `RegCombin' do NOT return the same output. R^2 and coefficient values are rounded to four decimal places. 
-#' @seealso \code{\link{printRegCombin}}
-#' @rdname ShowRegCombin
+#' @note The print and show methods for objects of class `RegAnalysis' do NOT return the same output. Mean R^2s, R^2 variances, R^2, and coefficient values are rounded to four decimial places.  
+#' @seealso \code{\link{printRegAnalysis}}
+#' @rdname ShowRegAnalysis
 #' @export
 setMethod(f="show",
-          signature="RegCombin",
+          signature="RegAnalysis",
           definition=function(object){
+            cat("Mean R^2 values by covariate: \n")
+            print(round(object@MeanR2,4))
+            cat("\n")
+            cat("Variance of R^2 values by covariate: \n")
+            print(round(object@VarR2,4))
+            cat("\n")
             cat("First 10 R^2 values: \n")
             if(length(object@R2) < 10){
               print(round(object@R2,4))

@@ -39,4 +39,4 @@ setMethod(f="performRegAnalysis",
           VarR2 <- apply(object@coefficients,1,function(x) var(object@R2[which(!is.na(x))] ) )
             return(new("RegAnalysis",MeanR2=MeanR2,VarR2=VarR2,coefficients=object@coefficients,R2=object@R2,X=object@X,y=object@y))
           } # close definition 
-) #close set method            
+) #close set method        
