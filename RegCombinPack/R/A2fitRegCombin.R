@@ -7,13 +7,12 @@
 #'
 #' @return An object of class RegCombin containing
 #' \itemize{
-#'  \item{coefficients}{A n by (2^n)-1 matrix of coefficient values, where n is the number of columns in \code{X} plus 1 (for the intercept).  Each column in this object represeents the output of a single model, each row represents a given variable in \code{X}.}
-#'  \item{R2}{A numeric vector of length (2^n)-1 of R^2 values, where n is the number of columns in \code{X}.}
-#'  \item{X}{The first object input} 
-#'  \item{y}{The second object input}
+#'  \item{coefficients}{ A n by (2^n)-1 matrix of coefficient values, where n is the number of columns in \code{X} plus 1 (for the intercept).  Each column in this object represeents the output of a single model, each row represents a given variable in \code{X}.}
+#'  \item{R2}{ A numeric vector of length (2^n)-1 of R^2 values, where n is the number of columns in \code{X}.}
+#'  \item{X}{ The first object input} 
+#'  \item{y}{ The second object input}
 #'  }
 #'  
-#' @author Dalston G. Ward  \email{ward.dalston@gmail.com}
 #' @note The reason that the number of combinations is (2^n)-1 instead of 2^n is that one cannot fit a regression with no covariates and no intercept (which is the combination of none of the columns of \code{X}.
 #' @examples
 #' 
@@ -21,17 +20,18 @@
 #' myX <- matrix(rpois(n=60,lambda=15),ncol=4)
 #' myY <- sample(1:100,15,replace=TRUE) 
 #' fitRegCombin(myX, myY)
+#' @author Dalston G. Ward
 #' @rdname fitRegCombin
 #' @aliases fitRegCombin,ANY-method
 #' @export
 setGeneric(name="fitRegCombin",
-           def=function(X,y,...)
+           def=function(X,y)
            {standardGeneric("fitRegCombin")}
 )
 
 #' @export
 setMethod(f="fitRegCombin",
-          definition=function(X, y, ...){
+          definition=function(X, y){
             
             #before everything, add the intercept vector
             X <- cbind(1,X)

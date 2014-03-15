@@ -4,12 +4,27 @@
 \alias{getRegCombin}
 \alias{getRegCombin,RegCombin-method}
 \alias{getRegCombinInput}
+\alias{getRegCombinInput,RegCombin-method}
 \alias{initialize,RegCombin-method}
-\title{Regressions of all covaraite combinations}
+\alias{performRegAnalysis,RegCombin-method}
+\title{A Regression Combination object}
 \usage{
+\S4method{initialize}{RegCombin}(.Object, coefficients = matrix(0, nrow = 1,
+  ncol = 1), R2 = numeric(0), X = matrix(0, nrow = 1, ncol = 1),
+  y = numeric(1))
+
 getRegCombin(object)
 
+\S4method{getRegCombin}{RegCombin}(object)
+
 getRegCombinInput(object)
+
+\S4method{getRegCombinInput}{RegCombin}(object)
+
+\S4method{performRegAnalysis}{RegCombin}(object)
+}
+\arguments{
+  \item{.Object}{ An object: see the Details section.}
 }
 \description{
 Objects of class \code{RegCombin} are created by the
@@ -28,6 +43,6 @@ input, a numeric vector of the same length as the number of
 rows of \code{X} }
 }
 \author{
-Dalston G. Ward: \email{ward.dalston
+Dalston G. Ward
 }
 

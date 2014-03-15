@@ -3,12 +3,10 @@
 \alias{print,RegAnalysis-method}
 \title{Printing RegAnalysis objects}
 \usage{
-print(object)
+print(x,...)
 }
 \arguments{
-  \item{object}{an object of class `RegAnalysis'}
-
-  \item{x}{an object used to select a method.}
+  \item{x}{an object of class `RegAnalysis'}
 
   \item{...}{further arguments passed to or from other
   methods.}
@@ -34,9 +32,9 @@ The print and show methods for objects of class
 variances of R^2 rounded to four digits.
 }
 \author{
-Dalston G. Ward: \email{ward.dalston
+Dalston G. Ward
 }
 \seealso{
-\code{\link{showRegAnalysis}}
+\code{\link{show,RegAnalysis-method}}
 }
 

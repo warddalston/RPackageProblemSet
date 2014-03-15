@@ -3,7 +3,7 @@
 \alias{fitRegCombin,ANY-method}
 \title{Regressions with all possible covariave combinations}
 \usage{
-fitRegCombin(X, y, ...)
+fitRegCombin(X, y)
 }
 \arguments{
   \item{X}{A numeric matrix object of covariates with no
@@ -14,14 +14,14 @@ fitRegCombin(X, y, ...)
 }
 \value{
 An object of class RegCombin containing \itemize{
-\item{coefficients}{A n by (2^n)-1 matrix of coefficient
+\item{coefficients}{ A n by (2^n)-1 matrix of coefficient
 values, where n is the number of columns in \code{X} plus 1
 (for the intercept).  Each column in this object
 represeents the output of a single model, each row
-represents a given variable in \code{X}.} \item{R2}{A
+represents a given variable in \code{X}.} \item{R2}{ A
 numeric vector of length (2^n)-1 of R^2 values, where n is
-the number of columns in \code{X}.} \item{X}{The first
-object input} \item{y}{The second object input} }
+the number of columns in \code{X}.} \item{X}{ The first
+object input} \item{y}{ The second object input} }
 }
 \description{
 Regresses all possible combinations of a covariates on an
@@ -40,6 +40,6 @@ myY <- sample(1:100,15,replace=TRUE)
 fitRegCombin(myX, myY)
 }
 \author{
-Dalston G. Ward \email{ward.dalston
+Dalston G. Ward
 }
 

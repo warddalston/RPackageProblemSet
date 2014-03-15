@@ -3,13 +3,13 @@
 \alias{plot,RegCombin-method}
 \title{Plotting RegCombin objects}
 \usage{
-plot(x,plot.int=TRUE...)
+plot(x,plot.int=TRUE,...)
 }
 \arguments{
   \item{x}{an object of class `RegCombin'}
 
-  \item{plot.int=TRUE}{a logical which determines whether
-  or not to plot the intercept coefficient.}
+  \item{plot.int}{a logical which determines whether or not
+  to plot the intercept coefficient. Defaults to TRUE.}
 
   \item{...}{arguements passed on to other functions.}
 }
@@ -38,7 +38,10 @@ myY <- sample(1:100,15,replace=TRUE)
 myRegCombin <- fitRegCombin(myX, myY)
 plot(myRegCombin,plot.int=FALSE)
 }
+\author{
+Dalston G. Ward
+}
 \seealso{
-\code{\link{RegCombin-method}}
+\code{\link{RegCombin-class}}
 }
 

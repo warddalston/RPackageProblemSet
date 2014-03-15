@@ -2,15 +2,14 @@
 #' 
 #' Prints a summary of important information form an object of class `RegAnalysis'
 #' 
-#' @usage print(object)
+#' @usage print(x,...)
 #'
-#' @param object an object of class `RegAnalysis'
+#' @param x an object of class `RegAnalysis'
 #' 
 #' @details The print method for objects of class `RegAnalysis' prints to the console the following information about a `RegAnalysis' object: the number of observations per regression, the number of regressions run, the number of covariates considered, the highest R^2 value, the variables included in that regression, the average R^2 value for each regressions including each covariate, the variance of R^2 values for each covariate, as well as the average value for each of the included coefficents.  
-#'
-#' @author Dalston G. Ward: \email{ward.dalston@gmail.com}
+#' @author Dalston G. Ward
 #' @note The print and show methods for objects of class `RegAnalysis' do NOT return the same output. Means and variances of R^2 rounded to four digits.  
-#' @seealso \code{\link{showRegAnalysis}}
+#' @seealso \code{\link{show,RegAnalysis-method}}
 #' @rdname printRegAnalysis
 #' @export
 setMethod(f="print",

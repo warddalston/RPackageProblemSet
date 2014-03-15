@@ -1,4 +1,4 @@
-#' Regressions of all covaraite combinations  
+#' A Regression Combination object 
 #' 
 #' Objects of class \code{RegCombin} are created by the \code{fitRegCombin} function
 #'
@@ -10,8 +10,7 @@
 #' \item \code{X} The first input, a matrix of covariate values (intercept vector not included)
 #' \item \code{y} the second input, a numeric vector of the same length as the number of rows of \code{X} 
 #' }
-#'
-#' @author Dalston G. Ward: \email{ward.dalston@gmail.com}
+#' @author Dalston G. Ward 
 #' @aliases RegCombin-class initialize,RegCombin-method getRegCombin,RegCombin-method 
 #' @rdname RegCombin
 #' @export
@@ -30,6 +29,7 @@ setClass(Class="RegCombin",
          )
 )
 
+#' @rdname RegCombin
 #' @export
 setMethod("initialize", "RegCombin", 
           function(.Object, coefficients=matrix(0,nrow=1,ncol=1), R2=numeric(0),X=matrix(0,nrow=1,ncol=1),y=numeric(1)){
@@ -58,6 +58,7 @@ setGeneric("getRegCombin",
            }
 )
 
+#' @rdname RegCombin
 #' @export
 setMethod(f="getRegCombin", #f is some generic method that R knows (it knows getRegCombin because we just taught it to R in the function right about here!!!!! )
           signature="RegCombin", #now we teach R what to do when it sees getRegCombin and the input is of class RegCombin! 
@@ -74,6 +75,7 @@ setGeneric("getRegCombinInput", #this funciton and the one below it define get m
            }
 )
 
+#' @rdname RegCombin
 #' @export
 setMethod(f="getRegCombinInput", 
           signature="RegCombin",  

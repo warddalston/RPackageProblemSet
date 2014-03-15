@@ -25,9 +25,9 @@ do NOT return the same output. R^2 and coefficient values
 are rounded to four decimal places.
 }
 \author{
-Dalston G. Ward: \email{ward.dalston
+Dalston G. Ward
 }
 \seealso{
-\code{\link{printRegCombin}}
+\code{\link{print,RegCombin-method}}
 }
 

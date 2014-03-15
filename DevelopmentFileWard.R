@@ -18,11 +18,26 @@ document(current.code)
 ## Install the package
 install(pkg=current.code, local=TRUE)
 
-?plot
+#code to test! 
+?RegCombinPack
 set.seed(1801)
 myX <- matrix(rpois(n=60,lambda=15),ncol=4)
 myY <- sample(1:100,15,replace=TRUE)
-plot(fitRegCombin(myX, myY))
+toy <- fitRegCombin(myX, myY)
+emptytoy <- new("RegCombin")
+emptytoy
+print(toy)
+show(toy)
+getRegCombin(toy)
+getRegCombinInput(toy)
+shinytoy <- performRegAnalysis(toy)
+print(shinytoy)
+show(shinytoy)
+plot(toy,plot.int=FALSE)
+plot(shinytoy)
+
+#see what things may be wrong...
+check(current.code)
 
 ## Build a version of the package to share manually
 build(current.code, path=getwd())

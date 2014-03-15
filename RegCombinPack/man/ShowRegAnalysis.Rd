@@ -27,9 +27,9 @@ variances, R^2, and coefficient values are rounded to four
 decimial places.
 }
 \author{
-Dalston G. Ward: \email{ward.dalston
+Dalston G. Ward
 }
 \seealso{
-\code{\link{printRegAnalysis}}
+\code{\link{print,RegAnalysis-method}}
 }
 

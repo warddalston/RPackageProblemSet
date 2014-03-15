@@ -3,12 +3,10 @@
 \alias{print,RegCombin-method}
 \title{Printing RegCombin objects}
 \usage{
-print(object)
+print(x,...)
 }
 \arguments{
-  \item{object}{an object of class `RegCombin'}
-
-  \item{x}{an object used to select a method.}
+  \item{x}{an object of class `RegCombin'}
 
   \item{...}{further arguments passed to or from other
   methods.}
@@ -31,9 +29,9 @@ The print and show methods for objects of class `RegCombin'
 do NOT return the same output.
 }
 \author{
-Dalston G. Ward: \email{ward.dalston
+Dalston G. Ward
 }
 \seealso{
-\code{\link{showRegCombin}}
+\code{\link{show,RegCombin-method}}
 }
 

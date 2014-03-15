@@ -15,7 +15,7 @@ Objects of class \code{RegAnalysis} are created by the
 \details{
 An object of the class `RegAnalysis' has the following
 slots: \itemize{ \item \code{MeanR2} A vector of the mean
-r^2 values for regressions including each of the possible
+R^2 values for regressions including each of the possible
 covariates. \item \code{VarR2} A vector of the Variance of
 the R^2 values for regressions including each of the
 covariates. \item \code{coefficients} A matrix of the
@@ -29,6 +29,6 @@ input, a numeric vector of the same length as the number of
 rows of \code{X} }
 }
 \author{
-Dalston G. Ward: \email{ward.dalston
+Dalston G. Ward
 }
 
