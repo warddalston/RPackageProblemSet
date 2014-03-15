@@ -1,5 +1,3 @@
-setGeneric("print") #Because "print" is not a generic S4 function. 
-
 #' Printing RegCombin objects
 #' 
 #' Prints a summary of important information form an object of class `RegCombin'
