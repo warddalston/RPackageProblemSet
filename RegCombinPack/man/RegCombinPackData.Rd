@@ -18,6 +18,6 @@ lambda=26. \item\code{Variable 4} A vector of numbers drawn
 from a Poisson distribution with lambda=26. }
 }
 \author{
-Dalston G. Ward
+Dalston G. Ward \email{ward.dalston@gmail.com}
 }
 

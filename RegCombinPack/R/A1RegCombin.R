@@ -10,7 +10,7 @@
 #' \item \code{X} The first input, a matrix of covariate values (intercept vector not included)
 #' \item \code{y} the second input, a numeric vector of the same length as the number of rows of \code{X} 
 #' }
-#' @author Dalston G. Ward 
+#' @author Dalston G. Ward \email{ward.dalston@@gmail.com}
 #' @aliases RegCombin-class initialize,RegCombin-method getRegCombin,RegCombin-method 
 #' @rdname RegCombin
 #' @export

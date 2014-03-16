@@ -20,7 +20,7 @@
 #' myX <- matrix(rpois(n=60,lambda=15),ncol=4)
 #' myY <- sample(1:100,15,replace=TRUE) 
 #' fitRegCombin(myX, myY)
-#' @author Dalston G. Ward
+#' @author Dalston G. Ward \email{ward.dalston@@gmail.com}
 #' @rdname fitRegCombin
 #' @aliases fitRegCombin,ANY-method
 #' @export

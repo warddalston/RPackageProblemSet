@@ -5,7 +5,7 @@
 #' @param object an object of class `RegCombin'
 #' 
 #' @details The show method for objects of class `RegCombin' prints the first ten values from the \code{R2} slot, the first ten values from the \code{y} slot, the leading 5 by 5 matrix from the \code{coefficients} slot and the leading 5 by 5 matrix from the \code{X} slot.  
-#' @author Dalston G. Ward
+#' @author Dalston G. Ward \email{ward.dalston@@gmail.com}
 #' @note The print and show methods for objects of class `RegCombin' do NOT return the same output. R^2 and coefficient values are rounded to four decimal places. 
 #' @seealso \code{\link{print,RegCombin-method}}
 #' @rdname ShowRegCombin

@@ -40,6 +40,6 @@ myY <- sample(1:100,15,replace=TRUE)
 fitRegCombin(myX, myY)
 }
 \author{
-Dalston G. Ward
+Dalston G. Ward \email{ward.dalston@gmail.com}
 }
 

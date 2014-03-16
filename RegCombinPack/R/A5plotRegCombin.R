@@ -17,7 +17,7 @@
 #' myY <- sample(1:100,15,replace=TRUE) 
 #' myRegCombin <- fitRegCombin(myX, myY)
 #' plot(myRegCombin,plot.int=FALSE)
-#' @author Dalston G. Ward 
+#' @author Dalston G. Ward \email{ward.dalston@@gmail.com}
 #' @seealso \code{\link{RegCombin-class}}
 #' @rdname plotRegCombin
 #' @export

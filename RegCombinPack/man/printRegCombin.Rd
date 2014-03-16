@@ -29,7 +29,7 @@ The print and show methods for objects of class `RegCombin'
 do NOT return the same output.
 }
 \author{
-Dalston G. Ward
+Dalston G. Ward \email{ward.dalston@gmail.com}
 }
 \seealso{
 \code{\link{show,RegCombin-method}}

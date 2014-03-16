@@ -14,7 +14,7 @@
 #'  \item{y}{ The second object input}
 #'  }
 #'  
-#' @author Dalston G. Ward 
+#' @author Dalston G. Ward \email{ward.dalston@@gmail.com}
 #' @note The reason that the number of combinations is (2^n)-1 instead of 2^n is that one cannot fit a regression with no covariates and no intercept (which is the combination of none of the columns of \code{X}.
 #' @examples
 #' 

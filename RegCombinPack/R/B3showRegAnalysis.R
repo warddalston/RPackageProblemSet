@@ -6,7 +6,7 @@
 #' 
 #' @details The show method for objects of class `RegAnalysis' prints the entire MeanR2 and VarR2 vectors, the first ten values from the \code{R2} slot, the first ten values from the \code{y} slot, the leading 5 by 5 matrix from the \code{coefficients} slot and the leading 5 by 5 matrix from the \code{X} slot.  
 #'
-#' @author Dalston G. Ward
+#' @author Dalston G. Ward \email{ward.dalston@@gmail.com}
 #' @note The print and show methods for objects of class `RegAnalysis' do NOT return the same output. Mean R^2s, R^2 variances, R^2, and coefficient values are rounded to four decimial places.  
 #' @seealso \code{\link{print,RegAnalysis-method}}
 #' @rdname ShowRegAnalysis

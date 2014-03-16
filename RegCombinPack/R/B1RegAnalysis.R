@@ -13,7 +13,7 @@
 #' \item \code{y} the second input, a numeric vector of the same length as the number of rows of \code{X} 
 #' }
 #'
-#' @author Dalston G. Ward
+#' @author Dalston G. Ward \email{ward.dalston@@gmail.com}
 #' @aliases RegAnalysis-class initialize,RegAnalysis-method getRegAnalysis,RegAnalysis-method 
 #' @rdname RegAnalysis
 #' @export

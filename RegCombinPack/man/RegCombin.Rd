@@ -43,6 +43,6 @@ input, a numeric vector of the same length as the number of
 rows of \code{X} }
 }
 \author{
-Dalston G. Ward
+Dalston G. Ward \email{ward.dalston@gmail.com}
 }
 

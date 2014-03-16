@@ -7,7 +7,7 @@
 #' @param x an object of class `RegCombin'
 #' 
 #' @details The print method for objects of class `RegCombin' prints to the console the following information about a `RegCombin' object: the number of observations per regression, the number of regressions run, the number of covariates considered, the highest R^2 value and the variables included in that regression, as well as the average value for each of the included coefficents.  
-#' @author Dalston G. Ward
+#' @author Dalston G. Ward \email{ward.dalston@@gmail.com}
 #' @note The print and show methods for objects of class `RegCombin' do NOT return the same output.
 #' @seealso \code{\link{show,RegCombin-method}}
 #' @rdname printRegCombin

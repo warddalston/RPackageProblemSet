@@ -32,7 +32,7 @@ The print and show methods for objects of class
 variances of R^2 rounded to four digits.
 }
 \author{
-Dalston G. Ward
+Dalston G. Ward \email{ward.dalston@gmail.com}
 }
 \seealso{
 \code{\link{show,RegAnalysis-method}}

@@ -39,7 +39,7 @@ myRegCombin <- fitRegCombin(myX, myY)
 plot(myRegCombin,plot.int=FALSE)
 }
 \author{
-Dalston G. Ward
+Dalston G. Ward \email{ward.dalston@gmail.com}
 }
 \seealso{
 \code{\link{RegCombin-class}}

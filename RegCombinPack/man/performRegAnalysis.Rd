@@ -47,6 +47,6 @@ myRegCombin <- fitRegCombin(myX, myY)
 performRegAnalysis(myRegCombin)
 }
 \author{
-Dalston G. Ward
+Dalston G. Ward \email{ward.dalston@gmail.com}
 }
 
