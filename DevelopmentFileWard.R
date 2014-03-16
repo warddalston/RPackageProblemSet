@@ -10,6 +10,14 @@ setwd("/Users/clockbob1/Documents/WashU 2nd Year/Applied Stats Programming/March
 ## This is run once when the package strcuture is first created
 create(path="./RegCombinPack", check=FALSE)
 
+## write the example data set
+set.seed(1801)
+dataX <- matrix(rpois(n=60,lambda=26),ncol=4)
+dataY <- sample(1:100,15,replace=TRUE)
+RegCombinPackData <- cbind(dataY,dataX)
+colnames(RegCombinPackData) <- c("Y","Variable 1","Variable 2","Variable 3","Variable 4")
+save(RegCombinPackData,file="./RegCombinPack/data/RegCombinPackData.rda")
+
 ## This can be run many times as the code is updates
 current.code <- as.package("RegCombinPack")
 load_all(current.code)
@@ -27,7 +35,7 @@ toy <- fitRegCombin(myX, myY)
 emptytoy <- new("RegCombin")
 emptytoy
 print(toy)
-show(toy)
+show(toy) 
 getRegCombin(toy)
 getRegCombinInput(toy)
 shinytoy <- performRegAnalysis(toy)
@@ -35,6 +43,10 @@ print(shinytoy)
 show(shinytoy)
 plot(toy,plot.int=FALSE)
 plot(shinytoy)
+data(RegCombinPackData)
+fitRegCombin(RegCombinPackData[,2:5],RegCombinPackData[,1])
+demo(fitRegCombin)
+demo(performRegAnalysis)
 
 #see what things may be wrong...
 check(current.code)

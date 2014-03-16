@@ -6,7 +6,14 @@
 \alias{initialize,RegAnalysis-method}
 \title{A Regression Analysis object}
 \usage{
+\S4method{initialize}{RegAnalysis}(.Object, MeanR2 = numeric(0),
+  VarR2 = numeric(0), coefficients = matrix(0, nrow = 1, ncol = 1),
+  R2 = numeric(0), X = matrix(0, nrow = 1, ncol = 1), y = numeric(1))
+
 getRegAnalysis(object)
+}
+\arguments{
+  \item{.Object}{ An object: see the Details section.}
 }
 \description{
 Objects of class \code{RegAnalysis} are created by the
